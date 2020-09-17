@@ -71,17 +71,29 @@
 			</div>
 
 			<div id="install" class="section black">
-				<div class="content center">
+				<div class="content left">
 					<h2>Install</h2>
-					<p>It's fairly easy to install. Just install <a href="https://voidlinux.org" target="_blank">Void Linux</a> first, then run:</p>
+					<p>There are currently 3 ways to install <strong>Ymir</strong> GNU+Linux-libre on your system. Choose the path to your freedom!</p>
+				</div>
+
+				<div class="content right">
+					<h3>Download</h3>
+					<p>Easiest way to install. Also great for new installs. Just write the ISO on a flash drive or CD/DVD and install like you do other distros. And you'll be up and running in no time.</p>
+					<p><a href="http://198.255.68.182/live" class="button cta">Download ISO</a></p>
+
+					<h3>Migrate</h3>
+					<p>If you already run <a href="https://voidlinux.org" target="_blank">Void Linux</a>, try this:</p>
 					<div class="term-decor">
 						<pre class="inner">
-$ wget https://github.com/drake-newell/void-packages/raw/master/void-liberation || curl -LO https://github.com/drake-newell/void-packages/raw/master/void-liberation
-$ chmod +x void-liberation
-$ sudo ./void-liberation
+$ wget https://github.com/drake-newell/void-packages/raw/master/liberation || curl -LO https://github.com/drake-newell/void-packages/raw/master/liberation
+$ chmod +x liberation
+$ sudo ./liberation
 						</pre>
 					</div>
-					<p>If you want to install from source, follow our guide on project <a href="https://github.com/drake-newell/void-packages" target="_blank">README</a>.</p>
+					<p>Please do not try this on a production install. Backup important files before proceeding.</p>
+
+					<h3>Build</h3>
+					<p>If you want to build from source, which is not hard at all with our script, you can follow our guide on project <a href="https://github.com/drake-newell/void-packages" target="_blank">README</a>.</p>
 				</div>
 			</div>
 
