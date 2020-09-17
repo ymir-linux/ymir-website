@@ -19,7 +19,8 @@ Optionally, create a `config.json` file with contents like below then run `gulp`
 {
 	"source_dir": "src",
 	"output_dir": "public",
-	"kernel_version": "5.8.8-gnu_1"
+	"kernel_version": "5.8.8-gnu_1",
+	"iso_download_url": "http://somedomain.test/iso"
 }
 ```
 

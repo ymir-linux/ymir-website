@@ -24,7 +24,8 @@ if (fs.existsSync('config.json')) {
 	var config = {
 		"source_dir": "src",
 		"output_dir": "public",
-		"kernel_version": "5.8.8-gnu_1"
+		"kernel_version": "5.8.8-gnu_1",
+		"iso_download_url": "http://localhost.test/iso",
 	}
 }
 const sourcedir=config['source_dir'];
@@ -81,7 +82,8 @@ gulp.task('html', async function () {
 		}))
 		.pipe(nunjucks.compile({
 				kernel_version: config['kernel_version'],
-				inline_include: template_inline_include
+				inline_include: template_inline_include,
+				iso_download_url: config['iso_download_url']
 			}))
 		.pipe(gulp.dest(outputdir));
 	// Favicon
