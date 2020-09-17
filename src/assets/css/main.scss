@@ -1,0 +1,266 @@
+//// Variables ////
+
+$normal-font: 'Encode Sans','DejaVu Sans', 'Droid Sans', sans-serif;
+$code-font: 'Droid Sans Mono', 'DejaVu Sans Mono', monospace;
+$term-color: #0a3033;
+
+
+/// Mixins ////
+
+/// Test if `$value` is a valid direction
+/// @param {*} $value - Value to test
+/// @return {Bool}
+/// @source https://www.sitepoint.com/building-linear-gradient-mixin-sass/
+@function is-direction($value) {
+  $is-keyword: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
+  $is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+
+  @return $is-keyword or $is-angle;
+}
+
+/// Mixin printing a linear-gradient
+/// as well as a plain color fallback
+/// and the `-webkit-` prefixed declaration
+/// @access public
+/// @param {Keyword | Angle} $direction - Linear gradient direction
+/// @param {Arglist} $color-stops - List of color-stops composing the gradient
+/// @source https://www.sitepoint.com/building-linear-gradient-mixin-sass/
+@mixin linear-gradient($direction, $color-stops...) {
+  // Direction has been omitted and happens to be a color-stop
+  @if is-direction($direction) == false {
+    $color-stops: $direction, $color-stops;
+    $direction: 180deg;
+  }
+
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+//// Embed font ////
+@font-face {
+	/*! Encode Sans is licensed under SIL Open Font License v1.10: https://www.fontsquirrel.com/license/encode-sans */
+	font-family: "Encode Sans";
+	src: url("../fonts/EncodeSans-Regular.ttf") format("truetype");
+}
+
+//// Reset Css ////
+// Reset default browser CSS properties for rendering everything same way on
+// all browsers
+* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+
+//// General tags ////
+// Set font
+h1,h2,h3,h4,p,li {
+	font-family:$normal-font;
+}
+img {
+	border:0;
+}
+img.fullwidth {
+	width: 100%;
+}
+a {
+	color:inherit;
+}
+a.button {
+	display:inline-block;
+	background:#5b5b5b;
+	padding:10px 20px;
+	border-radius:5px;
+	text-decoration:none;
+	margin-right:10px;
+	color:#ffffff;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+a.button.cta {
+	background:#9b0e0e;
+}
+li {
+	margin: 0 0 5px 15px;
+	list-style-type: square;
+	list-style-position: outside;
+	padding-left: 8px;
+}
+body {
+	background:#d70c0c;
+}
+h2, p {
+	margin:10px 0;
+}
+pre {
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+
+//// Navigation related ////
+#nav {
+	position:fixed;
+	top: 0;
+	background: #fff;
+	text-align:right;
+	width: 100%;
+	box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+#nav, #nav * {
+	transition: all 0.8s ease;
+}
+#nav.scroll-top {
+	background: rgba(215, 12, 12, 0.7);
+	box-shadow: none;
+	@include linear-gradient(rgba(215, 12, 12, 1) 30%, rgba(215, 12, 12, 0) 100%);
+}
+#nav.scroll-top li.current a {
+	color: #fff6f6;
+	border-color: #fff6f6;
+}
+#nav.scroll-top li a {
+	color: #fff6f6;
+}
+#nav > .inner {
+	padding:20px;
+}
+#nav li {
+	display: inline-block;
+	padding:0 10px;
+	margin:0;
+	list-style-type: none;
+}
+#nav li a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #444;
+}
+#nav li.current a {
+	color:#aa0000;
+	border-bottom:1px solid #aa0000;
+}
+#nav li.logo {
+	position: absolute;
+	left: 10px;
+	top: 8px;
+}
+#nav li.logo.white {
+	opacity:0;
+}
+#nav li.logo.black {
+	opacity:1;
+}
+#nav.scroll-top li.logo.white {
+	opacity:1;
+}
+#nav.scroll-top li.logo.black {
+	opacity:0;
+}
+#nav li.logo img {
+	width: 120px;
+}
+#nav li.logo a {
+	border-bottom:none;
+}
+
+
+//// Layout related ////
+
+// Add a spacing to the first section so that clicking "Home" (when it goes to
+// the #home anchor) it goes exactly to top.
+.wrap .section:first-child {
+	padding-top:130px;
+}
+
+
+//// Section related ////
+.section.red {
+	background:#d70c0c;
+	color:#fff6f6;
+}
+.section.black {
+	background:#2b0000;
+	color:#ffeaea;
+}
+.section.white {
+	background:#ffffff;
+	color:#333333;
+}
+.section {
+	padding:100px 150px;
+	display: flex;
+}
+.section .content.left {
+	width:40%;
+	margin-right:20px;
+	flex-basis: 50%;
+}
+.section .content.right {
+	width:40%;
+	margin-left:20px;
+	flex-basis: 50%;
+}
+.section .content.center {
+	width:60%;
+	margin:0 auto;
+}
+.section .content.center-text {
+	text-align:center;
+}
+.section.focus {
+	padding:70px 150px;
+}
+.section.focus h2 {
+	font-size: 36px;
+}
+.section.focus h2, .section.focus p {
+	margin: 30px 0;
+}
+.term-decor.smaller {
+	width: 375px;
+	margin:0 auto;
+}
+
+
+//// Terminal decoration related ////
+.term-decor::before {
+	content:'';
+	display:block;
+	background:#e6e6e6;
+	width:10px;
+	height:10px;
+	border-radius:50%;
+	margin: 0 12px 6px auto;
+}
+.term-decor, .term-decor .inner {
+	background:$term-color;
+	color:#ececec;
+	padding:15px;
+	border:2px solid #e6e6e6;
+	border-radius:7px;
+	text-align:left;
+}
+.term-decor, .term-decor .inner p {
+	font-family:$code-font;
+}
+.term-decor {
+	padding:6px 4px 4px 4px;
+	border-radius:15px;
+	background: none;
+}
+.term-decor .inner p:first-child {
+	margin-top: 0;
+}
+
+
+//// Footer related ////
+.footer {
+	background: #d70c0c;
+	color:#ffeaea;
+	padding:10px 20px;
+	text-align:center;
+}

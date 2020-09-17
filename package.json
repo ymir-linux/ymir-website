@@ -1,0 +1,23 @@
+{
+  "name": "ymir-website",
+  "version": "0.0.1",
+  "description": "Ymir website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "jquery-one-page-nav": "github:reback00/jQuery-One-Page-Nav#npm-support"
+  },
+  "devDependencies": {
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-cache-bust": "^1.4.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-nunjucks": "^5.0.2",
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^4.14.1"
+  }
+}
