@@ -33,7 +33,7 @@
 							Distributor ID:	VoidLinux</p>
 						</div>
 					</div>
-					<p><strong>Ymir</strong> is a GNU+Linux-libre distro that aims to be lightweight, efficient, bleeding edge and most importantly, <a href="https://www.gnu.org/philosophy/philosophy.html" title="Also known as Free Software" target="_blank">libre</a>*. We aim to be Free as in freedom from kernel to packages to every bit on your system.</p>
+					<p><strong>Ymir</strong> is a GNU+Linux-libre distro that aims to be lightweight, efficient, bleeding edge and most importantly, <a href="https://www.gnu.org/philosophy/philosophy.html" title="Also known as Free Software" target="_blank">libre</a>*. We aim to be free=as-in-freedom from kernel to packages to every bit on your system.</p>
 					<p><a href="#install" class="op-nav button cta">Install Now</a></p>
 				</div>
 			</div>
@@ -41,11 +41,11 @@
 			<div id="why" class="section black">
 				<div class="content left">
 					<h2>Why</h2>
-					<p>You may be wondering - why we made this project?</p>
+					<p>You may be wondering - why make this project?</p>
 					<ul>
-						<li>Our upstream project Void Linux has &quot;Linux&quot; as it&#39;s kernel by default, which has some closed source blobs that can't be read, studied, modified or learned from. It stops you from enjoying total software freedom.</li>
+						<li>Our upstream project Void Linux runs the vanilla Linux kernel, which has some closed source blobs that can't be read, studied, modified or learned from. It stops you from enjoying total software freedom.</li>
 						<li>Void Linux does not allow custom kernel builds on their project, so liberated kernels can't be allowed. (It&#39;s not their fault. They have limited resources.)</li>
-						<li>Many packages on Void Linux repos are not fully libre or has major issues that harms user freedom. e.g. Abiword has hard-coded nonfree fonts, p7zip has nonfree unrar. <a href="https://github.com/drake-newell/void-packages/issues/8" target="_blank">Full list here</a></li>
+						<li>Many packages on Void Linux repos are not fully libre or have major issues that harm user freedom. e.g. Abiword has hard-coded nonfree fonts, p7zip has nonfree unrar. <a href="https://github.com/ymir-linux/void-packages/issues/8" target="_blank">Full list here</a></li>
 						<li>Many packages suggest or forcefully push closed source, privacy disrespecting services, features or optional dependencies to you. e.g. Firefox, Chromium has telemetry enabled by default.</li>
 					</ul>
 					<p>We can&#39;t directly contribute these fixes to Void Linux. So we had no other way but to create this separate project. We also had to &quot;blacklist&quot; some packages that can never be &quot;liberated&quot;, so having a separate project makes sense.</p>
@@ -63,10 +63,10 @@
 					<h2>Solution</h2>
 					<p>This project brings <a href="https://www.fsfla.org/ikiwiki/selibre/linux-libre/" target="_blank">Linux-libre</a> kernel on Void Linux ecosystem. Linux-libre is a fork of the original Linux kernel that removes closed source proprietary blobs that are inherently present on a typical Linux kernel. So now you can enjoy freedom even on kernel level.</p>
 
-					<p>The project also provides a cleaner, &quot;liberated&quot; version of semi-free packages to ensure user freedom. (NOTE: All the packages are <a href="https://github.com/drake-newell/void-packages/issues/8" target="_blank">not</a> "liberated" yet. We&#39;re working on it.) We also have a &quot;your-freedom&quot; package to keep out nonfree packages from being installed on your system by accident.</p>
+					<p>The project also provides a cleaner, &quot;liberated&quot; version of semi-free packages to ensure user freedom. (NOTE: All the packages are <a href="https://github.com/ymir-linux/void-packages/issues/8" target="_blank">not</a> "liberated" yet. We&#39;re working on it.) We also have a &quot;your-freedom&quot; package ported from <a href="https://parabola.nu" target="_blank">Parabola GNU/Linux-libre</a> to stop nonfree packages from being installed on your system by accident.</p>
 
-					<p>The goal is to make your system clean and free from proprietary or nonfree stuff.</p>
-					<p><a href="https://github.com/drake-newell/void-packages" target="_blank" class="button">Check source code</a> <a href="#install" class="op-nav button cta">Install</a></p>
+					<p>The goal is to make your system clean and free from proprietary or nonfree programs.</p>
+					<p><a href="https://github.com/ymir-linux/void-packages" target="_blank" class="button">Check source code</a> <a href="#install" class="op-nav button cta">Install</a></p>
 				</div>
 			</div>
 
@@ -85,7 +85,7 @@
 					<p>If you already run <a href="https://voidlinux.org" target="_blank">Void Linux</a>, try this:</p>
 					<div class="term-decor">
 						<pre class="inner">
-$ wget https://github.com/drake-newell/void-packages/raw/master/liberation || curl -LO https://github.com/drake-newell/void-packages/raw/master/liberation
+$ wget https://github.com/ymir-linux/void-packages/raw/master/liberation || curl -LO https://github.com/ymir-linux/void-packages/raw/master/liberation
 $ chmod +x liberation
 $ sudo ./liberation
 						</pre>
@@ -93,13 +93,13 @@ $ sudo ./liberation
 					<p>Please do not try this on a production install. Backup important files before proceeding.</p>
 
 					<h3>Build</h3>
-					<p>If you want to build from source, which is not hard at all with our script, you can follow our guide on project <a href="https://github.com/drake-newell/void-packages" target="_blank">README</a>.</p>
+					<p>If you want to build from source, you can use our <a href="https://github.com/drake-newell/void-packages/blob/master/liberation-local" target="_blank">liberation-local</a> script. Alternatively, you can follow the guide on our void-packages fork's <a href="https://github.com/ymir-linux/void-packages" target="_blank">README</a>.</p>
 				</div>
 			</div>
 
 			<div class="footer">
-				<p>This project is Free Software. Source code is available <a href="https://github.com/drake-newell/void-packages" target="_blank">here</a>.</p>
-				<p>* The project is not complete yet. Kernel is liberated, but we have <a href="https://github.com/drake-newell/void-packages/issues/8" target="_blank">packages</a> to liberate. This is our aim at the end.</p>
+				<p>This project is Free Software. Source code is available <a href="https://github.com/ymir-linux/void-packages" target="_blank">here</a>.</p>
+				<p>* The project is not complete yet. The kernel is liberated, but we still have <a href="https://github.com/ymir-linux/void-packages/issues/8" target="_blank">some packages</a> to liberate. This is our aim at the end.</p>
 			</div>
 		</div>
 
