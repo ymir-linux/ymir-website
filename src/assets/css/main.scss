@@ -4,9 +4,9 @@
 // Some example colors:
 // - Red: #ff2a2a
 // - Blue: #519eeb
-$brand-primary-color: #81A1C1;
+$brand-primary-color: #81a1c1;
 // The secondary color of the brand
-$brand-secondary-color: #2E3440;
+$brand-secondary-color: #2e3440;
 $brand-primary-color-darker: darken($brand-primary-color, 18%);
 $brand-primary-color-darkest: darken($brand-primary-color, 50%);
 $text-color: lighten($brand-primary-color, 40%);
