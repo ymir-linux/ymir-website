@@ -95,7 +95,10 @@ gulp.task('html', async function () {
 gulp.task('clean', async function() {
 	return del([
 		outputdir+'/*'
-	]);
+	], {
+		// In some cases this is needed for successful delete
+		force:true
+	});
 });
 
 gulp.task('default', async function(){
