@@ -44,3 +44,7 @@ Or consult [here](https://stackoverflow.com/questions/37986800/node-sass-couldnt
 The architecture is not right for npm/node.js or something. [source](https://stackoverflow.com/a/58371522)
 
 I've had success with `pnpm` on that case.
+
+### `Error: ENOENT: no such file or directory, open 'public/assets/js/jquery.nav.min.js'`
+
+Sometimes (presumably on slow machines) this message may appear when `gulp` is run after a clean clone or running `gulp clean`. The workaround is to run `gulp` again when that happens.
