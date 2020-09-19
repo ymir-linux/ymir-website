@@ -94,7 +94,9 @@ gulp.task('html', async function () {
 // Cleans the old output
 gulp.task('clean', async function() {
 	return del([
-		outputdir+'/*'
+		outputdir+'/*.html',
+		outputdir+'/assets',
+		outputdir+'/favicon.ico'
 	], {
 		// In some cases this is needed for successful delete
 		force:true
