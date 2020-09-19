@@ -1,8 +1,21 @@
 //// Variables ////
 
+// The primary color of the brand
+// Some example colors:
+// - Red: #ff2a2a
+// - Blue: #519eeb
+$brand-primary-color: #ff2a2a;
+// The secondary color of the brand
+$brand-secondary-color: #2b0000;
+$brand-primary-color-darker: darken($brand-primary-color, 18%);
+$brand-primary-color-darkest: darken($brand-primary-color, 50%);
+$text-color: lighten($brand-primary-color, 40%);
+
 $normal-font: 'Encode Sans','DejaVu Sans', 'Droid Sans', sans-serif;
 $code-font: 'Droid Sans Mono', 'DejaVu Sans Mono', monospace;
-$term-color: #0a3033;
+$term-decor-bg: $brand-primary-color-darkest;
+$term-decor-outline: #e6e6e6;
+$term-decor-text: #ececec;
 
 
 /// Mixins ////
@@ -12,10 +25,10 @@ $term-color: #0a3033;
 /// @return {Bool}
 /// @source https://www.sitepoint.com/building-linear-gradient-mixin-sass/
 @function is-direction($value) {
-  $is-keyword: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
-  $is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+	$is-keyword: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
+	$is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
 
-  @return $is-keyword or $is-angle;
+	@return $is-keyword or $is-angle;
 }
 
 /// Mixin printing a linear-gradient
@@ -26,15 +39,15 @@ $term-color: #0a3033;
 /// @param {Arglist} $color-stops - List of color-stops composing the gradient
 /// @source https://www.sitepoint.com/building-linear-gradient-mixin-sass/
 @mixin linear-gradient($direction, $color-stops...) {
-  // Direction has been omitted and happens to be a color-stop
-  @if is-direction($direction) == false {
-    $color-stops: $direction, $color-stops;
-    $direction: 180deg;
-  }
+	// Direction has been omitted and happens to be a color-stop
+	@if is-direction($direction) == false {
+		$color-stops: $direction, $color-stops;
+		$direction: 180deg;
+	}
 
-  background: nth(nth($color-stops, 1), 1);
-  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
-  background: linear-gradient($direction, $color-stops);
+	background: nth(nth($color-stops, 1), 1);
+	background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+	background: linear-gradient($direction, $color-stops);
 }
 
 //// Embed font ////
@@ -59,7 +72,7 @@ $term-color: #0a3033;
 //// General tags ////
 // Set font
 h1,h2,h3,h4,p,li {
-	font-family:$normal-font;
+	font-family: $normal-font;
 }
 img {
 	border:0;
@@ -68,26 +81,27 @@ img.fullwidth {
 	width: 100%;
 }
 a {
-	color:inherit;
+	// Be the same color as the text the link is in
+	color: inherit;
 }
 a.button {
 	display:inline-block;
-	background:#5b5b5b;
+	background: darken($brand-primary-color, 25%);
 	padding:10px 20px;
 	border-radius:5px;
 	text-decoration:none;
 	margin-right:10px;
-	color:#ffffff;
+	color: #ffffff;
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 a.button.cta {
-	background:#9b0e0e;
+	background:darken($brand-primary-color, 30%);
 }
 li {
-	margin: 0 0 5px 15px;
+	margin: 0 0 5px 18px;
 	list-style-type: square;
 	list-style-position: outside;
-	padding-left: 8px;
+	padding-left: 0;
 }
 body {
 	background:#d70c0c;
@@ -116,14 +130,14 @@ pre {
 #nav.scroll-top {
 	background: rgba(215, 12, 12, 0.7);
 	box-shadow: none;
-	@include linear-gradient(rgba(215, 12, 12, 1) 30%, rgba(215, 12, 12, 0) 100%);
+	@include linear-gradient( rgba( $brand-primary-color-darker, 1 ) 30%, rgba( $brand-primary-color-darker, 0 ) 100% );
 }
 #nav.scroll-top li.current a {
-	color: #fff6f6;
-	border-color: #fff6f6;
+	color: $text-color;
+	border-color: $text-color;
 }
 #nav.scroll-top li a {
-	color: #fff6f6;
+	color: $text-color;
 }
 #nav > .inner {
 	padding:20px;
@@ -140,8 +154,8 @@ pre {
 	color: #444;
 }
 #nav li.current a {
-	color:#aa0000;
-	border-bottom:1px solid #aa0000;
+	color: $brand-primary-color-darker;
+	border-bottom: 1px solid $brand-primary-color-darker;
 }
 #nav li.logo {
 	position: absolute;
@@ -178,13 +192,13 @@ pre {
 
 
 //// Section related ////
-.section.red {
-	background:#d70c0c;
-	color:#fff6f6;
+.section.prominent {
+	background:darken($brand-primary-color, 18%);
+	color:$text-color;
 }
-.section.black {
-	background:#2b0000;
-	color:#ffeaea;
+.section.secondary {
+	background:$brand-primary-color-darkest;
+	color:$text-color;
 }
 .section.white {
 	background:#ffffff;
@@ -230,17 +244,17 @@ pre {
 .term-decor::before {
 	content:'';
 	display:block;
-	background:#e6e6e6;
+	background:$term-decor-outline;
 	width:10px;
 	height:10px;
 	border-radius:50%;
 	margin: 0 12px 6px auto;
 }
 .term-decor, .term-decor .inner {
-	background:$term-color;
-	color:#ececec;
+	background:$term-decor-bg;
+	color:$term-decor-text;
 	padding:15px;
-	border:2px solid #e6e6e6;
+	border:2px solid $term-decor-outline;
 	border-radius:7px;
 	text-align:left;
 }
@@ -259,7 +273,7 @@ pre {
 
 //// Footer related ////
 .footer {
-	background: #d70c0c;
+	background: $brand-primary-color-darker;
 	color:#ffeaea;
 	padding:10px 20px;
 	text-align:center;
