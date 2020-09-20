@@ -11,6 +11,11 @@ $brand-primary-color-darker: darken($brand-primary-color, 18%);
 $brand-primary-color-darkest: darken($brand-primary-color, 50%);
 $text-color: lighten($brand-primary-color, 40%);
 
+$logo-black-primary-color: $brand-primary-color;
+$logo-black-secondary-color: $brand-secondary-color;
+$logo-white-primary-color: $brand-primary-color;
+$logo-white-secondary-color: lighten($brand-secondary-color, 80%);
+
 $normal-font: 'Encode Sans','DejaVu Sans', 'Droid Sans', sans-serif;
 $code-font: 'Droid Sans Mono', 'DejaVu Sans Mono', monospace;
 $term-decor-bg: $brand-primary-color-darkest;
@@ -112,6 +117,25 @@ h2, p {
 pre {
 	white-space: pre-wrap;
 	overflow-wrap: break-word;
+}
+
+
+//// SVG related ////
+.logo svg {
+	width: 120px;
+	height: auto;
+}
+.logo.white svg path#logo_triangles {
+	fill: $logo-white-primary-color !important;
+}
+.logo.white svg circle#logo_circle, .logo.white svg g#brand_name path {
+	fill: $logo-white-secondary-color !important;
+}
+.logo.black svg path#logo_triangles {
+	fill: $logo-black-primary-color !important;
+}
+.logo.black svg circle#logo_circle, .logo.black svg g#brand_name path {
+	fill: $logo-black-secondary-color !important;
 }
 
 
