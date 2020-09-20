@@ -125,6 +125,9 @@ pre {
 	width: 120px;
 	height: auto;
 }
+.logo.svg {
+	display: none;
+}
 .logo.white svg path#logo_triangles {
 	fill: $logo-white-primary-color !important;
 }
