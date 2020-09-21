@@ -12,9 +12,10 @@ $brand-primary-color-darkest: darken($brand-primary-color, 50%);
 $text-color: lighten($brand-primary-color, 40%);
 
 $logo-black-primary-color: $brand-primary-color;
-$logo-black-secondary-color: $brand-secondary-color;
+// $logo-black-secondary-color: $brand-secondary-color;
+$logo-black-secondary-color: #ce1a1a;
 $logo-white-primary-color: $brand-primary-color;
-$logo-white-secondary-color: lighten($brand-secondary-color, 80%);
+$logo-white-secondary-color: lighten(#ce1a1a, 80%);
 
 $normal-font: 'Encode Sans','DejaVu Sans', 'Droid Sans', sans-serif;
 $code-font: 'Droid Sans Mono', 'DejaVu Sans Mono', monospace;
