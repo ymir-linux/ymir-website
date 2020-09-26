@@ -1,0 +1,69 @@
+//// Responsive styles ////
+
+//-- Classic monitors --//
+
+@media only screen and (max-width: 1024px) {
+	.section {
+		padding: 60px 120px;
+	}
+	.section .content.center {
+		width: 80%;
+	}
+}
+
+//-- Screens little smaller than 1024px --//
+
+@media only screen and (max-width: 850px) {
+	.section {
+		display: block;
+		padding: 40px 100px;
+	}
+	.section .content.left, .section .content.right {
+		width: 100%;
+		margin: 40px 0;
+	}
+	.section.focus {
+		padding: 70px 100px;
+	}
+}
+
+//-- Tablet screens --//
+
+@media only screen and (max-width: 768px) {
+	p, li {
+		font-size: 1.2em;
+	}
+	.section.focus {
+		padding: 60px 70px;
+	}
+	.section .content.center {
+		width: 100%;
+	}
+	a.button {
+		padding: 15px 30px;
+		display: block;
+		margin: 20px 0;
+		text-align: center;
+		font-size: 1.2em;
+	}
+}
+
+//-- Mobile phone screens --//
+
+@media only screen and (max-width: 480px) {
+	.section.focus {
+		padding: 40px 30px;
+	}
+	.section {
+		padding: 10px 40px;
+	}
+	#nav li.text {
+		display: block;
+	}
+	#nav li.logo {
+		top: 20px;
+	}
+	.term-decor.smaller {
+		width: 100%;
+	}
+}
