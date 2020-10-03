@@ -46,6 +46,28 @@
 		text-align: center;
 		font-size: 1.2em;
 	}
+	#nav li.logo {
+		top: 20px;
+	}
+	#nav > .inner {
+		padding:30px;
+	}
+	// Responsive menu related
+	#nav .resp-menu {
+		display:none;
+	}
+	#nav .resp-menu li {
+		display: block;
+		padding: 2px 0;
+	}
+	.resp-menu-btn {
+		display:block;
+		cursor:pointer;
+	}
+	// When menu opened
+	#nav .resp-menu-btn:focus ~ .resp-menu, #nav .resp-menu-btn ~ .resp-menu:active {
+		display:block;
+	}
 }
 
 //-- Mobile phone screens --//
@@ -56,12 +78,6 @@
 	}
 	.section {
 		padding: 10px 40px;
-	}
-	#nav li.text {
-		display: block;
-	}
-	#nav li.logo {
-		top: 20px;
 	}
 	.term-decor.smaller {
 		width: 100%;
