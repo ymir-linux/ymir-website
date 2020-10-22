@@ -77,7 +77,7 @@ $term-decor-text: #ececec;
 
 //// General tags ////
 // Set font
-h1,h2,h3,h4,p,li {
+h1, h2, h3, h4, p, li, button {
 	font-family: $normal-font;
 }
 img {
@@ -307,3 +307,20 @@ pre {
 	padding:10px 20px;
 	text-align:center;
 }
+
+
+//// Responsive styles ////
+
+// Responsive menu related
+.resp-menu-btn {
+	border: none;
+	background: transparent;
+	display: none;
+	margin-left: auto;
+}
+#nav.scroll-top .resp-menu-btn {
+	color: $text-color;
+}
+
+// Import responsive styles for different screen sizes
+@import '_responsive.scss';
